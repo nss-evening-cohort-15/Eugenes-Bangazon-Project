@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Store Fave Reports</title>
+  </head>
+  <body>
+    <h1>Store List</h1>
+
+    {% for user in favstore_list %}
+        <h2>{{ user.first_name }}</h2>
+        <ol>
+            {% for store in user.stores %}
+            <li>
+                Store: {{ store.name }}
+            </li>
+            <ul>
+              Number of players: {{ user.first_name }}
+          </ul>
+            {% endfor %}
+        </ol>
+    {% endfor %}
+  </body>
+</html>
