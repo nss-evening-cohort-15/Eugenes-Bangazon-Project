@@ -7,8 +7,11 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "db",
+            "name": "Bangazon",
             "database": "db.sqlite3"
         }
+    ],
+    "cSpell.words": [
+        "bangazon"
     ]
 }
