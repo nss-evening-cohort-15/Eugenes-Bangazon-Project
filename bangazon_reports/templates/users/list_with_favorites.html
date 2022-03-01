@@ -6,18 +6,15 @@
     <title>Store Fave Reports</title>
   </head>
   <body>
-    <h1>Store List</h1>
+    <h1>Favorite Store List</h1>
 
     {% for user in favstore_list %}
-        <h2>{{ user.first_name }}</h2>
+        <h2>{{ user.name }}</h2>
         <ol>
             {% for store in user.stores %}
-            <li>
-                Store: {{ store.name }}
-            </li>
             <ul>
-              Number of players: {{ user.first_name }}
-          </ul>
+              ❤ Store Favorited: {{store}}
+            </ul>
             {% endfor %}
         </ol>
     {% endfor %}

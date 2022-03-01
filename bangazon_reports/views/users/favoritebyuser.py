@@ -43,7 +43,7 @@ def favstore_list(request):
     list_of_users_with_favs = favstore_by_user.values()
 
         # Specify the Django template and provide data context
-    template = 'users/list_with_favs.html'
+    template = 'users/list_with_favorites.html'
     context = {
         'favstore_list': list_of_users_with_favs
     }
