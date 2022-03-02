@@ -1,13 +1,14 @@
+from xmlrpc.client import ResponseError
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-
-
+from rest_framework.response import Response
+# from bangazon_api.models import Rating
 class Product(models.Model):
     name = models.CharField(max_length=100)
     store = models.ForeignKey(
         "Store", on_delete=models.CASCADE, related_name='products')
     price = models.FloatField(validators=[
-        MinValueValidator(0.00), MaxValueValidator(10000.00)])
+        MinValueValidator(0.00), MaxValueValidator(17500.00)])
     description = models.TextField()
     quantity = models.IntegerField()
     location = models.CharField(max_length=100)
@@ -31,9 +32,12 @@ class Product(models.Model):
         total_rating = 0
         for rating in self.ratings.all():
             total_rating += rating.score
-
-        avg = total_rating / self.ratings.count()
-        return avg
+        try:
+            self.ratings.count() !=0
+            avg = total_rating / self.ratings.count()
+            return avg
+        except:
+            return Response()
 
     @property
     def number_purchased(self):
