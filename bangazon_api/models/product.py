@@ -1,8 +1,8 @@
 from xmlrpc.client import ResponseError
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-# from bangazon_api.models import Rating
 from rest_framework.response import Response
+# from bangazon_api.models import Rating
 class Product(models.Model):
     name = models.CharField(max_length=100)
     store = models.ForeignKey(
@@ -36,7 +36,7 @@ class Product(models.Model):
             self.ratings.count() !=0
             avg = total_rating / self.ratings.count()
             return avg
-        except Rating.DoesNotExist:
+        except:
             return Response()
 
     @property
